@@ -2,6 +2,12 @@
 
 Module that includes extra email settings required by the client.
 
+
+## Installation
+TODO: Insert blurb about how to install via composer from the Trellis Satis repo.
+
+## Configuration
+
 #### Global BCC
 Configure under Stores > Configuration > Trellis > Advanced Email Settings
 Summary: sets a global BCC email address(es) to capture all of the emails triggered by Magento.
