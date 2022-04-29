@@ -1,6 +1,6 @@
 {
     "name": "trellis/module-advanced-email-settings",
-    "description": "N/A",
+    "description": "Magento 2 extension that includes extra email settings that are helpful to a merchant.",
     "require": {
         "php": "~7.3.0||~7.4.0"
     },

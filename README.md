@@ -2,7 +2,10 @@ Brought to you and maintained by [Trellis Commerce](https://trellis.co/) - A ful
 
 ## Trellis Advanced Email Settings
 
-Magento 2 extension that includes extra email settings that are helpful to the client.
+Magento 2 extension that includes extra email settings that are helpful to a merchant. 
+* Allows an admin to set a "Reply-To" header on all emails.
+* Allows an admin to set one or more "BCC" email addresses on all emails.
+  * BCC emails can be turned off for specific email templates. 
 
 
 ## Installation

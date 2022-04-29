@@ -12,7 +12,7 @@ use Trellis\AdvancedEmailSettings\Helper\Data;
 /**
  * Class AddReplyTo.
  */
-class AddReplyToPlugin
+class AdvancedEmailSettingsPlugin
 {
     protected Data $helper;
 
