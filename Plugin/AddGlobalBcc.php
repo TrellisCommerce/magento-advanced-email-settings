@@ -1,44 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Trellis\AdvancedEmailSettings\Plugin;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\Mail\Message;
+use Trellis\AdvancedEmailSettings\Helper\Data;
 
 class AddGlobalBcc
 {
-    /**
-     * @var ScopeConfigInterface
-     */
-    private $_scopeConfig;
+    protected Data $configData;
 
     /**
-     * AddGlobalBcc constructor.
-     * @param ScopeConfigInterface $scopeConfig
+     * AddGlobalBcc constructor
+     *
+     * @param Data $configData
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
-    )
-    {
-        $this->_scopeConfig = $scopeConfig;
+        Data $configData
+    ) {
+        $this->configData = $configData;
     }
 
     /**
-     * @param \Magento\Framework\Mail\Message $subject
-     * @param mixed $result
+     * @param Message $subject
+     * @param mixed   $result
+     *
      * @return mixed
      */
-    public function afterAddTo(\Magento\Framework\Mail\Message $subject, $result)
+    public function afterAddTo(Message $subject, $result)
     {
-        if ($this->_scopeConfig->getValue('trellis_advancedemailsettings/general/active', ScopeInterface::SCOPE_STORE) == '1') {
-            $bcc = explode(',',
-                $this->_scopeConfig->getValue('trellis_advancedemailsettings/general/bcc', ScopeInterface::SCOPE_STORE)
-            );
+        if (!$this->configData->isBccEnabled()) {
+            return $result;
+        }
 
-            if (!empty($bcc)) {
-                foreach ($bcc as $email) {
-                    $subject->addBcc($email);
-                }
+        $bcc = $this->configData->getBccEmailAddresses();
+
+        if (!empty($bcc)) {
+            foreach ($bcc as $email) {
+                $subject->addBcc($email);
             }
         }
 

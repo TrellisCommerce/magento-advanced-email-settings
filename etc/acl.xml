@@ -8,7 +8,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Trellis_AdvancedEmailSettings::config" title="Trellis Advanced Email Settings" sortOrder="10800" />
+                            <resource id="Trellis_AdvancedEmailSettings::config" title="Trellis Advanced Email Settings" sortOrder="10800"/>
                         </resource>
                     </resource>
                 </resource>
