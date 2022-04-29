@@ -16,8 +16,9 @@ class Data extends AbstractHelper
     const CONFIG_REPLY_TO_EMAIL_ADDRESS = 'trans_email/ident_replyto/email';
     const CONFIG_REPLY_TO_EMAIL_NAME = 'trans_email/ident_replyto/name';
 
-    const CONFIG_BCC_ACTIVE = 'trellis_advancedemailsettings/general/active';
+    const CONFIG_BCC_ACTIVE = 'trellis_advancedemailsettings/general/enabled';
     const CONFIG_BCC_EMAILS = 'trellis_advancedemailsettings/general/bcc';
+    const CONFIG_BCC_TEMPLATE_BLACKLIST = 'trellis_advancedemailsettings/general/bcc_template_blacklist';
 
     /**
      * Wrapper for get config values
@@ -104,5 +105,23 @@ class Data extends AbstractHelper
         }
 
         return explode(',', $bccEmails);
+    }
+
+    /**
+     * Fetch BCC email template blacklist
+     *
+     * @param null $store
+     *
+     * @return array
+     */
+    public function getBccEmailTemplateBlacklist($store = null): array
+    {
+        $bccBlacklist = $this->getConfig(self::CONFIG_BCC_TEMPLATE_BLACKLIST, $store);
+
+        if (empty($bccBlacklist)) {
+            return [];
+        }
+
+        return explode(',', $bccBlacklist);
     }
 }

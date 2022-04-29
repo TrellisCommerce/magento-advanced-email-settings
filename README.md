@@ -20,9 +20,15 @@ bin/magento cache:flush
 ## Configuration
 
 #### Global BCC
-Configure under Stores > Configuration > Trellis > Advanced Email Settings
-Summary: sets a global BCC email address(es) to capture all of the emails triggered by Magento.
+Configure under Stores > Configuration > Trellis > Advanced Email Settings > Global BCC
+* "Enabled?" - enabling this setting will add any specified BCC email address(es) on all emails sent by Magento.
+* "BCC Email Address(es)" - a comma separated list of email addresses.
+* "BCC Email Template Blacklist" - allows control of which email templates do NOT trigger a BCC email. This is useful 
+  for more confidential emails like password reset. This is a comma separated list of the email template identifiers 
+  that should NOT receive the BCC emails. 
 
 #### Reply-To
-Configure under Stores > Configuration > General > Store Email Addresses > Reply To
-Summary: sets the reply to name and email address for all emails sent by Magento.
+Configure under Stores > Configuration > General > Store Email Addresses > Reply To.
+* "Enabled" - enabling this setting will add a "reply-to" header on all emails sent by Magento.
+* "Reply To Email" - any responses on emails that Magento sends will be sent to this email address.
+* "Reply To Name" - the display name for the Reply To email address.

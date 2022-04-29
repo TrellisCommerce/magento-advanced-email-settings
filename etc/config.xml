@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <trans_email>
+            <ident_replyto>
+                <enabled>0</enabled>
+            </ident_replyto>
+        </trans_email>
+        <trellis_advancedemailsettings>
+            <general>
+                <enabled>0</enabled>
+                <bcc_template_blacklist>customer_password_forgot_email_template</bcc_template_blacklist>
+            </general>
+        </trellis_advancedemailsettings>
+    </default>
+</config>

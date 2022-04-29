@@ -20,6 +20,8 @@ class AddReplyToPlugin
 
     protected ScopeConfigInterface $scopeConfig;
 
+    protected string $templateIdentifier;
+
     /**
      * AddReplyTo constructor.
      *
@@ -35,6 +37,15 @@ class AddReplyToPlugin
         $this->logger = $logger;
         $this->helper = $helper;
         $this->scopeConfig = $scopeConfig;
+    }
+
+    /**
+     * @param TransportBuilder $subject
+     * @param                  $templateIdentifier
+     */
+    public function beforeSetTemplateIdentifier(TransportBuilder $subject, $templateIdentifier)
+    {
+        $this->templateIdentifier = $templateIdentifier;
     }
 
     /**
@@ -54,6 +65,11 @@ class AddReplyToPlugin
 
         if ($this->helper->isBccEnabled()) {
             $bcc = $this->helper->getBccEmailAddresses();
+            $blacklist = $this->helper->getBccEmailTemplateBlacklist();
+
+            if(in_array($this->templateIdentifier, $blacklist)) {
+                return;
+            }
 
             if (!empty($bcc)) {
                 foreach ($bcc as $email) {
