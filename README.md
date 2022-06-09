@@ -13,7 +13,6 @@ Magento 2 extension that includes extra email settings that are helpful to a mer
 Follow the instructions below to install this extension using Composer.
 
 ```
-composer config repositories.trellis/module-advanced-email-settings git git@github.com:TrellisCommerce/magento-advanced-email-settings
 composer require trellis/module-advanced-email-settings
 bin/magento module:enable --clear-static-content Trellis_AdvancedEmailSettings
 bin/magento setup:upgrade
